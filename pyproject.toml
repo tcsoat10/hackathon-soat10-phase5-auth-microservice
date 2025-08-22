@@ -1,0 +1,54 @@
+[project]
+name = "hackathon-soat10-phase5-auth-microservice"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Carlos Roberto",email = "carlosjr.if@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi (>=0.116.1,<0.117.0)",
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "injector (>=0.22.0,<0.23.0)",
+    "sqlalchemy (>=2.0.43,<3.0.0)",
+    "pydantic (>=2.11.7,<3.0.0)",
+    "load-dotenv (>=0.1.0,<0.2.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "pymysql (>=1.1.1,<2.0.0)",
+    "cryptography (>=45.0.6,<46.0.0)",
+    "alembic (>=1.16.4,<2.0.0)",
+    "bcrypt (>=4.3.0,<5.0.0)",
+    "python-jose (>=3.5.0,<4.0.0)",
+    "python-multipart (>=0.0.20,<0.0.21)",
+    "dependency-injector (>=4.48.1,<5.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^9.4.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest-cov = "^6.2.1"
+pytest-xdist = "^3.8.0"
+factory-boy = "^3.3.3"
+pytest-mock = "^3.14.1"
+pytest = "^8.4.1"
+pytest-watch = "^4.2.0"
+parse = "^1.20.2"
+parse-type = "^0.6.6"
+pytest-bdd = "^8.1.0"
