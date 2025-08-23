@@ -1,13 +1,12 @@
 from fastapi import APIRouter, status
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 router = APIRouter()
 
 class HealthResponse(BaseModel):
     status: str
 
-    class Config:
-        schema_extra = {"example": {"status": "ok"}}
+    model_config = ConfigDict(json_schema_extra={"example": {"status": "ok"}})
 
 @router.get(
     "/health",

@@ -4,12 +4,12 @@ from sqlalchemy.orm import sessionmaker, declarative_base, Session
 import os
 
 DATABASE = {
-    "drivername": os.getenv("DATABASE_DRIVERNAME", "mysql+pymysql"),
-    "host": os.getenv("DATABASE_HOST", "localhost"),
-    "port": os.getenv("DATABASE_PORT", "3307"),
-    "user": os.getenv("DATABASE_USER", "user"),
-    "password": os.getenv("DATABASE_PASSWORD", "password"),
-    "name": os.getenv("DATABASE_DATABASE", "db_name"),
+    "drivername": os.getenv("MYSQL_DRIVERNAME", "mysql+pymysql"),
+    "host": os.getenv("MYSQL_HOST", "localhost"),
+    "port": os.getenv("MYSQL_PORT", "3307"),
+    "user": os.getenv("MYSQL_USER", "user"),
+    "password": os.getenv("MYSQL_PASSWORD", "password"),
+    "name": os.getenv("MYSQL_DATABASE", "db_name"),
 }
 
 DATABASE_URL = (

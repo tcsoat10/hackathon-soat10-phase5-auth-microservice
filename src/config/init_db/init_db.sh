@@ -6,7 +6,10 @@ echo "Application is ready to start..."
 MAX_RETRIES=3000
 COUNT=0
 
-while ! nc -z $MYSQL_HOST $MYSQL_PORT; do
+echo "MYSQL_HOST: $MYSQL_HOST"
+echo "MYSQL_PORT: $MYSQL_PORT"
+
+while ! nc -zv $MYSQL_HOST $MYSQL_PORT; do
   sleep 2
   COUNT=$((COUNT+1))
   if [ $COUNT -ge $MAX_RETRIES ]; then
