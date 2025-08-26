@@ -10,12 +10,17 @@ from alembic.config import Config
 from alembic import command
 
 from src.core.containers import Container
-from app import app
+from src.app import app
 from src.config.database import get_db
 from src.core.shared.identity_map import IdentityMap
 from src.core.utils.jwt_util import JWTUtil
+from tests.factories.customer_factory import CustomerFactory
+from tests.factories.permission_factory import PermissionFactory
+from tests.factories.person_factory import PersonFactory
+from tests.factories.profile_factory import ProfileFactory
+from tests.factories.user_factory import UserFactory
 
-pytest_plugins = ["pytest_bdd"]
+# pytest_plugins = ["pytest_bdd"]
 
 @pytest.fixture(scope="function")
 def test_engine(tmp_path_factory):
@@ -126,7 +131,13 @@ def client(db_session) -> Generator[TestClient, None, None]:
 
 @pytest.fixture(scope="function", autouse=True)
 def setup_factories(db_session):
-    factories = []
+    factories = [
+        PermissionFactory,
+        ProfileFactory,
+        UserFactory,
+        PersonFactory,
+        CustomerFactory,
+    ]
     
     identity_map = IdentityMap.get_instance()
 

@@ -54,3 +54,45 @@ class BasePermissionEnum(str, Enum):
 
     def __repr__(self):
         return str(self)
+
+class PermissionPermissions(BasePermissionEnum):
+    CAN_CREATE_PERMISSION = ("can_create_permission", "Permission to create a permission")
+    CAN_VIEW_PERMISSIONS = ("can_view_permissions", "Permission to view all permissions")
+    CAN_UPDATE_PERMISSION = ("can_update_permission", "Permission to update a permission")
+    CAN_DELETE_PERMISSION = ("can_delete_permission", "Permission to delete a permission")
+
+class ProfilePermissions(BasePermissionEnum):
+    CAN_CREATE_PROFILE = ("can_create_profile", "Permission to create a profile")
+    CAN_VIEW_PROFILES = ("can_view_profiles", "Permission to view all profiles")
+    CAN_UPDATE_PROFILE = ("can_update_profile", "Permission to update a profile")
+    CAN_DELETE_PROFILE = ("can_delete_profile", "Permission to delete a profile")
+
+class ProfilePermissionPermissions(BasePermissionEnum):
+    CAN_CREATE_PROFILE_PERMISSION = ("can_create_profile_permission", "Permission to create a profile permission")
+    CAN_VIEW_PROFILE_PERMISSIONS = ("can_view_profile_permissions", "Permission to view all profile permissions")
+    CAN_UPDATE_PROFILE_PERMISSION = ("can_update_profile_permission", "Permission to update a profile permission")
+    CAN_DELETE_PROFILE_PERMISSION = ("can_delete_profile_permission", "Permission to delete a profile permission")
+
+class UserPermissions(BasePermissionEnum):
+    CAN_CREATE_USER = ("can_create_user", "Permission to create a user")
+    CAN_VIEW_USERS = ("can_view_users", "Permission to view all users")
+    CAN_UPDATE_USER = ("can_update_user", "Permission to update a user")
+    CAN_DELETE_USER = ("can_delete_user", "Permission to delete a user")
+
+class UserProfilePermissions(BasePermissionEnum):
+    CAN_CREATE_USER_PROFILE = ("can_create_user_profile", "Permission to create a user profile")
+    CAN_VIEW_USER_PROFILES = ("can_view_user_profiles", "Permission to view all user profiles")
+    CAN_UPDATE_USER_PROFILE = ("can_update_user_profile", "Permission to update a user profile")
+    CAN_DELETE_USER_PROFILE = ("can_delete_user_profile", "Permission to delete a user profile")
+
+class CustomerPermissions(BasePermissionEnum):
+    CAN_CREATE_CUSTOMER = ("can_create_customer", "Permission to create a customer")
+    CAN_VIEW_CUSTOMERS = ("can_view_customers", "Permission to view all customers")
+    CAN_UPDATE_CUSTOMER = ("can_update_customer", "Permission to update a customer")
+    CAN_DELETE_CUSTOMER = ("can_delete_customer", "Permission to delete a customer")
+
+class PersonPermissions(BasePermissionEnum):
+    CAN_CREATE_PERSON = ("can_create_person", "Permission to create a person")
+    CAN_VIEW_PERSONS = ("can_view_persons", "Permission to view all persons")
+    CAN_UPDATE_PERSON = ("can_update_person", "Permission to update a person")
+    CAN_DELETE_PERSON = ("can_delete_person", "Permission to delete a person")

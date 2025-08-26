@@ -20,17 +20,15 @@ migrate_db:
 	alembic upgrade head
 
 dev:
-	@export MYSQL_HOST=localhost
-	@export MYSQL_PORT=3307
 	@echo "Starting MySQL container..."
 	@docker compose up -d --build auth-db
-	@echo "Waiting for MySQL to be ready..."
-	@sleep 15
+	@echo "Installing dependencies..."
+	@make poetry_install_dev
 	@echo "Applying migrations..."
-	@./src/config/init_db/init_db.sh
+	@poetry run ./src/config/init_db/init_db.sh
 	@echo "Starting Uvicorn..."
 	@trap 'docker compose down --remove-orphans' INT TERM EXIT; \
-	uvicorn src.app:app --reload --host 0.0.0.0 --port 8005
+	poetry run uvicorn src.app:app --reload --host 0.0.0.0 --port 8005
 
 test_watch:
 	ENV=test poetry run ptw --runner 'pytest --ff $(extra)'

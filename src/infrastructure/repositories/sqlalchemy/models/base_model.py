@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from typing import TypeVar, Generic
-from sqlalchemy import Column, DateTime, Integer
+from sqlalchemy import Column, DateTime, Integer, func
 from sqlalchemy.orm import DeclarativeBase, Mapped
 
 
@@ -15,15 +15,15 @@ class BaseModel(DeclarativeBase, Generic[M]):
     # Timestamp: Record creation time (default: current UTC time)
     created_at: Mapped[datetime] = Column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(timezone.utc),
+        server_default=func.now(),
         nullable=False
     )
 
     # Timestamp: Record last update time (auto-updated on modification)
     updated_at: Mapped[datetime] = Column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(timezone.utc),
-        onupdate=lambda: datetime.now(timezone.utc),
+        server_default=func.now(),
+        onupdate=func.now(),
         nullable=False
     )
 
