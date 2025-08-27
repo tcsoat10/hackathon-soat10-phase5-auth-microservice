@@ -1,5 +1,6 @@
 
 from src.core.domain.entities.base_entity import BaseEntity
+
 # pattern Identity Map - Martin Fowler
 # https://martinfowler.com/eaaCatalog/identityMap.html
 class IdentityMap:

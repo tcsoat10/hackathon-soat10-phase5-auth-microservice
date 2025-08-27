@@ -1,3 +1,4 @@
+from http import HTTPStatus
 from typing import Any, Dict, List, Type, TypeVar, Generic
 
 from src.core.domain.entities.base_entity import T
@@ -17,3 +18,7 @@ class DTOPresenter(Generic[T, D]):
     @staticmethod
     def transform_from_dict(data: Dict[str, Any], dto_class: Type[D]) -> D:
         return dto_class.from_dict(data)
+
+    @staticmethod
+    def json_response(data: Any, status_code: int = HTTPStatus.OK.value) -> tuple:
+        return {"data": data}, status_code

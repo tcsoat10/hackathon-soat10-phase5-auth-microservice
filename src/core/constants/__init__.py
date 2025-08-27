@@ -3,10 +3,8 @@ from .permissions import (
     PermissionPermissions,
     ProfilePermissions,
     ProfilePermissionPermissions,
-    RolePermissions,
     UserPermissions,
     UserProfilePermissions,
-    EmployeePermissions,
     CustomerPermissions,
     PersonPermissions
 )
