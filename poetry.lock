@@ -863,21 +863,6 @@ qa = ["flake8 (==5.0.4)", "mypy (==0.971)", "types-setuptools (==67.2.0.1)"]
 testing = ["Django", "attrs", "colorama", "docopt", "pytest (<9.0.0)"]
 
 [[package]]
-name = "load-dotenv"
-version = "0.1.0"
-description = "Automatically and implicitly load environment variables from .env file"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "load-dotenv-0.1.0.tar.gz", hash = "sha256:bbe5f40072d4a61eadca66de6c222df5a2d935d6d41b703be1ff75396f635145"},
-    {file = "load_dotenv-0.1.0-py3-none-any.whl", hash = "sha256:614803f720153fb8a5f97124a72aaa3930a67aa5547cbe8603d01ea7f9ac1adf"},
-]
-
-[package.dependencies]
-python-dotenv = "*"
-
-[[package]]
 name = "mako"
 version = "1.3.10"
 description = "A super-fast templating language that borrows the best ideas from the existing templating languages."
@@ -1875,4 +1860,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "b5a20b7990762f4d9fe4652f856f59e53d677898ff36c67b80c5026dc5c02873"
+content-hash = "547527174e2543ec245203c9e0c6f9b323c432f08c246eee19f62c0161cc349d"
