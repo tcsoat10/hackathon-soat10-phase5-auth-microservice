@@ -96,3 +96,11 @@ class PersonPermissions(BasePermissionEnum):
     CAN_VIEW_PERSONS = ("can_view_persons", "Permission to view all persons")
     CAN_UPDATE_PERSON = ("can_update_person", "Permission to update a person")
     CAN_DELETE_PERSON = ("can_delete_person", "Permission to delete a person")
+
+class VideoPermissions(BasePermissionEnum):
+    CAN_SEND_VIDEO = ("can_send_video", "Permission to send a video")
+
+class ZipPermissions(BasePermissionEnum):
+    CAN_DOWNLOAD_ZIP = ("can_download_zip", "Permission to download a zip file")
+    CAN_LIST_ZIPS = ("can_list_zips", "Permission to list contents of a zip file")
+    
