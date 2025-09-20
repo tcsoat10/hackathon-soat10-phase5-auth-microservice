@@ -41,9 +41,9 @@ class LoginCustomerUseCase:
 
         token_payload = {
             "person": {
-                "id": str(customer.id),
+                "customer_id": str(customer.id),
+                "username": customer.user.name,
                 "name": customer.person.name,
-                "cpf": customer.person.cpf,
                 "email": customer.person.email,
             },
             "profile": {
