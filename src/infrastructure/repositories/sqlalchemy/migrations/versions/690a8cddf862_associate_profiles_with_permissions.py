@@ -19,6 +19,8 @@ from src.core.constants.permissions import (
     UserPermissions,
     UserProfilePermissions,
     PersonPermissions,
+    VideoPermissions,
+    ZipPermissions,
 )
 
 # revision identifiers, used by Alembic.
@@ -72,7 +74,9 @@ profile_permissions = {
         *PersonPermissions.list_only_values(only=["CAN_VIEW", "CAN_UPDATE"]),
     ],
     "4": [  # Customer: acesso mínimo
-        *CustomerPermissions.list_only_values(only=["CAN_VIEW", "CAN_UPDATE"])
+        *CustomerPermissions.list_only_values(only=["CAN_VIEW", "CAN_UPDATE"]),
+        *VideoPermissions.values(),
+        *ZipPermissions.values(),
     ]
 }
 

@@ -19,7 +19,9 @@ from src.core.constants.permissions import (
     ProfilePermissionPermissions,
     ProfilePermissions,
     UserPermissions,
-    UserProfilePermissions
+    UserProfilePermissions,
+    VideoPermissions,
+    ZipPermissions
 )
 
 
@@ -61,6 +63,12 @@ permissions = [
 
     # Person
     *PersonPermissions.values_and_descriptions(),
+    
+    # Video
+    *VideoPermissions.values_and_descriptions(),
+    
+    # Zip
+    *ZipPermissions.values_and_descriptions(),
 ]
 
 
