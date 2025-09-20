@@ -54,6 +54,6 @@ class LoginCustomerUseCase:
 
         token = JWTUtil.create_token(token_payload)
         return {
-            "token_type": "bearer",
+            "token_type": "Bearer",
             "access_token": token,
         }
