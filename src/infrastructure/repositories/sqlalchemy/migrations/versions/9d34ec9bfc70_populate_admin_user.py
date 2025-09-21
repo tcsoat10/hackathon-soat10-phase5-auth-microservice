@@ -31,7 +31,7 @@ users_table = table(
 users = [
     {
         'name': 'administrator',
-        'password_hash': bcrypt.hashpw('123456'.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'),
+        'password_hash': bcrypt.hashpw('12345678'.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'),
         'profile_id': 1
     }
 ]

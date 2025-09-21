@@ -34,8 +34,8 @@ persons_table = table(
 persons = [
     {
         'name': 'administrator', 
-        'cpf': '',
-        'email': '',
+        'cpf': None,
+        'email': None,
         'birth_date': datetime(1900, 1, 1)
     }
 ]
