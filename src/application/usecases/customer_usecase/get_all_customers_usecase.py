@@ -17,6 +17,6 @@ class GetAllCustomersUsecase:
         customers = self.customer_gateway.get_all(include_deleted)
 
         if IsCustomerUsecase.is_customer(current_user):
-            customer = [customer for customer in customers if customer.id == int(current_user['person']['id'])]
+            customers = [customer for customer in customers if customer.id == int(current_user['person']['customer_id'])]
         
         return customers

@@ -13,7 +13,7 @@ class GetCustomerByIdUsecase:
         return cls(customer_gateway)
     
     def execute(self, customer_id: int, current_user: dict) -> Customer:
-        if IsCustomerUsecase.is_customer(current_user) and int(current_user['person']['id']) != customer_id:
+        if IsCustomerUsecase.is_customer(current_user) and int(current_user['person']['customer_id']) != customer_id:
             raise EntityNotFoundException(entity_name='Customer')
         
         customer = self.customer_gateway.get_by_id(customer_id)
