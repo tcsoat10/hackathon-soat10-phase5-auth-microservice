@@ -70,4 +70,4 @@ def update_user(
     controller: UserController = Depends(Provide[Container.user_controller]),
     user: dict = Security(get_current_user)
 ):
-    return controller.update_user_password(user['person']['id'], dto)
+    return controller.update_user_password(user['person']['customer_id'], dto)
