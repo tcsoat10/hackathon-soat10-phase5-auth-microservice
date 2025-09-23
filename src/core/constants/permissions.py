@@ -99,8 +99,9 @@ class PersonPermissions(BasePermissionEnum):
 
 class VideoPermissions(BasePermissionEnum):
     CAN_SEND_VIDEO = ("can_send_video", "Permission to send a video")
+    CAN_VIEW_VIDEO = ("can_list_video", "Permission to list videos")
+    CAN_DELETE_VIDEO = ("can_delete_video", "Permission to delete a video")
 
 class ZipPermissions(BasePermissionEnum):
     CAN_DOWNLOAD_ZIP = ("can_download_zip", "Permission to download a zip file")
-    CAN_LIST_ZIPS = ("can_list_zips", "Permission to list contents of a zip file")
-    
+    CAN_VIEW_ZIPS = ("can_view_zips", "Permission to list contents of a zip file")
