@@ -46,6 +46,7 @@ variable "secret_key" {
 }
 
 variable "aws_account_id" {}
+variable "auth_api_key" {}
 
 variable "application_image" {
   description = "Docker image for the application"

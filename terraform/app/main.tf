@@ -69,6 +69,10 @@ resource "kubernetes_deployment" "auth_app" {
             name = "SECRET_KEY"
             value = var.secret_key
           }
+          env {
+            name = "AUTH_SERVICE_X_API_KEY"
+            value = var.auth_api_key
+          }
           port {
             container_port = 8005
           }
