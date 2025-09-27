@@ -59,7 +59,7 @@ resource "kubernetes_deployment" "auth_app" {
           }
           env {
             name  = "MYSQL_PORT"
-            value = "3307"
+            value = "3306"
           }
           env {
             name = "MYSQL_DATABASE"
@@ -94,7 +94,7 @@ resource "kubernetes_service" "auth_app_lb" {
     }
     type = "LoadBalancer"
     port {
-      port        = 8005
+      port        = 80
       target_port = 8005
     }
   }
