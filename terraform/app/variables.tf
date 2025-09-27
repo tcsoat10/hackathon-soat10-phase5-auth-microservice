@@ -55,5 +55,5 @@ variable "application_image" {
 }
 
 locals {
-  application_image = "${var.aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/soattc-zipper-app:latest"
+  application_image = "${var.aws_account_id}.dkr.ecr.us-east-1.amazonaws.com/soattc-auth-app:latest"
 }
