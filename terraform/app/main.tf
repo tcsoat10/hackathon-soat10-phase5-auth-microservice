@@ -59,14 +59,18 @@ resource "kubernetes_deployment" "auth_app" {
           }
           env {
             name  = "MYSQL_PORT"
-            value = "3306"
+            value = "3307"
           }
           env {
             name = "MYSQL_DATABASE"
             value = data.terraform_remote_state.rds.outputs.db_name
           }
+          env {
+            name = "SECRET_KEY"
+            value = var.secret_key
+          }
           port {
-            container_port = 8080
+            container_port = 8005
           }
         }
       }
@@ -86,8 +90,8 @@ resource "kubernetes_service" "auth_app_lb" {
     }
     type = "LoadBalancer"
     port {
-      port        = 80
-      target_port = 8003
+      port        = 8005
+      target_port = 8005
     }
   }
 }

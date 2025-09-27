@@ -40,6 +40,11 @@ variable "db_username" {
   type        = string
 }
 
+variable "secret_key" {
+  description = "Database username"
+  type        = string
+}
+
 variable "aws_account_id" {}
 
 variable "application_image" {
