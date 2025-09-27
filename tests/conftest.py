@@ -88,7 +88,7 @@ def client(db_session) -> Generator[TestClient, None, None]:
                 "permissions": permissions,
             },
             "person": person or {
-                "id": "1",
+                "customer_id": "1",
                 "name": "Test User",
                 "cpf": fake.cpf(),
                 "email": fake.email()
