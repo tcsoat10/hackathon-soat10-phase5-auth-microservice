@@ -34,6 +34,18 @@ class CreateCustomerUsecase:
         return cls(customer_gateway, person_gateway, user_gateway, profile_gateway)
     
     def execute(self, dto: CreateCustomerDTO) -> Customer:
+        existing_customer = self.customer_gateway.get_by_cpf(dto.person.cpf)
+        if existing_customer and not existing_customer.is_deleted():
+            raise EntityDuplicatedException(entity_name='Customer')
+
+        existing_user = self.user_gateway.get_by_name(dto.user.name)
+        if existing_user:
+            raise EntityDuplicatedException(entity_name='User')
+
+        customer_profile = self.profile_gateway.get_by_name('customer')
+        if not customer_profile:
+            raise EntityNotFoundException(entity_name='Customer profile')
+
         person = self.person_gateway.get_by_cpf(dto.person.cpf)
         if not person:
             if self.person_gateway.exists_by_email(dto.person.email):
@@ -53,28 +65,19 @@ class CreateCustomerUsecase:
             if person.is_deleted():
                 person.reactivate()
             person = self.person_gateway.update(person)
-        
-        
-        user = self.user_gateway.get_by_name(dto.user.name)
-        if user:
-            raise EntityDuplicatedException(entity_name='User')
 
         user = User(name=dto.user.name, password=dto.user.password)
-        customer_profile = self.profile_gateway.get_by_name('customer')
-
-        if not customer_profile:
-            raise EntityNotFoundException(entity_name='Customer profile')
-
         user.profile = customer_profile
         user = self.user_gateway.create(user)
 
         customer = self.customer_gateway.get_by_person_id(person.id)
         if customer:
-            if not customer.is_deleted():
+            if customer.is_deleted():
+                customer.user = user
+                customer.reactivate()
+                customer = self.customer_gateway.update(customer)
+            else:
                 raise EntityDuplicatedException(entity_name='Customer')
-            
-            customer.reactivate()
-            self.customer_gateway.update(customer)
         else:
             customer = Customer(person=person, user=user)
             customer = self.customer_gateway.create(customer)
