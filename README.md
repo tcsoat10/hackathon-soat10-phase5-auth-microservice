@@ -1,4 +1,4 @@
-# Video Frame Extractor Microservice - SOAT10 - Pós Tech Arquitetura de Software - FIAP
+# Authenticator Microservice - SOAT10 - Pós Tech Arquitetura de Software - FIAP
 
 # Tópicos
 - [Descrição do Projeto](#descrição-do-projeto)
